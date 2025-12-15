@@ -38,8 +38,8 @@ const App = () => {
   };
 
   return (
-    // FIX APLICADO: 'overflow-x-hidden' elimina la barra de desplazamiento horizontal en el escritorio.
-    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans selection:bg-indigo-500 selection:text-white overflow-x-hidden">
+    // FIX APLICADO: 'w-screen' y 'overflow-x-hidden' combinados fuerzan el ancho correcto.
+    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans selection:bg-indigo-500 selection:text-white overflow-x-hidden w-screen">
       
       {/* --- NAVBAR --- */}
       <nav className="fixed w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800 transition-all duration-300">
