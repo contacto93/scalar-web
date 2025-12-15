@@ -29,13 +29,17 @@ const App = () => {
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Usar requestAnimationFrame para asegurar que el menú se cierre antes de desplazar
+      requestAnimationFrame(() => {
+        element.scrollIntoView({ behavior: 'smooth' });
+      });
     }
     setIsMenuOpen(false);
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans selection:bg-indigo-500 selection:text-white">
+    // FIX APLICADO: 'overflow-x-hidden' elimina la barra de desplazamiento horizontal en el escritorio.
+    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans selection:bg-indigo-500 selection:text-white overflow-x-hidden">
       
       {/* --- NAVBAR --- */}
       <nav className="fixed w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800 transition-all duration-300">
@@ -48,7 +52,7 @@ const App = () => {
               <img 
                 src="/logo.png" 
                 alt="Logo SCALAR" 
-                className="h-10 w-auto mr-3 object-contain" // Tamaño de logo en la barra
+                className="h-10 w-auto mr-3 object-contain" // Ajuste de altura para que se vea bien
               />
 
               <span className="font-bold text-xl tracking-tight">SCALAR</span>
@@ -253,7 +257,7 @@ const App = () => {
             </div>
 
             <div className="md:col-span-2 bg-slate-900 rounded-3xl p-8 border border-slate-800 hover:border-pink-500/50 transition-colors group relative overflow-hidden flex flex-col justify-between">
-               <div className="absolute right-0 bottom-0 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl -mr-16 -mb-16 group-hover:bg-pink-500/20 transition-all"></div>
+               <div className="absolute right-0 bottom-0 w-64 h-64 bg-pink-500/10 rounded-full blur-[120px] -mr-16 -mb-16 group-hover:bg-pink-500/20 transition-all"></div>
               <div>
                 <div className="w-12 h-12 bg-pink-500/20 rounded-xl flex items-center justify-center mb-6 text-pink-400">
                   <MessageCircle className="w-6 h-6" />
