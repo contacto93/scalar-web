@@ -100,7 +100,7 @@ const AgentsDetail = ({ navigateAndScroll }) => {
                ],
                standard: [
                    { icon: Share2, title: "Distribución Multicanal Sincronizada", desc: "Posteos paralelos y armónicos en Instagram, Facebook, X (Twitter) y tu Blog corporativo." },
-                   { icon: Video, title: "Reels Pro de Alta Fidelidad (Avatar AI)", desc: "Videos cinematográficos semanales con tu avatar hiperrealista personalizado, ideal para alcance y anuncios." },
+                   { icon: Video, title: "Reels Pro de Alta Fidelidad (Avatar AI)", desc: "Videos cinematográficos semanales con tu avatar hiperrealista personalizado, ideal para alcance and anuncios." },
                    { icon: SearchCode, title: "Optimización SEO Avanzada", desc: "Estructuración de textos y metadatos para rankear orgánicamente en los buscadores principales." },
                    { icon: FileText, title: "Estrategia Semanal Cerrada", desc: "Garantiza un flujo de 3 Posts (Imagen + Copy fluido), 1 Reel premium y 1 Blog de autoridad por semana." }
                ],
@@ -262,7 +262,7 @@ const AboutUs = ({ navigateAndScroll }) => (
          <div className="grid md:grid-cols-12 gap-10 items-center text-white">
            <div className="md:col-span-5 flex justify-center order-2 md:order-1">
              <div className="w-full max-w-sm h-80 rounded-2xl bg-slate-800 flex items-center justify-center border-4 border-fuchsia-700/40 shadow-2xl shadow-fuchsia-900/40 overflow-hidden relative">
-               {/* CORRECCIÓN: Quitados los estilos del fallback que ocultaban la foto real */}
+               {/* CORRECCIÓN: Etiqueta img limpia para que no sea interceptada erróneamente */}
                <img src="/pablo-navarro.png" alt="Pablo Navarro" className="w-full h-full object-cover" />
              </div>
            </div>
@@ -289,7 +289,7 @@ const AboutUs = ({ navigateAndScroll }) => (
            </div>
            <div className="md:col-span-5 flex justify-center text-violet-400">
              <div className="w-full max-w-sm h-80 rounded-2xl bg-slate-800 flex items-center justify-center border-4 border-violet-700/40 shadow-2xl shadow-violet-900/40 overflow-hidden relative">
-               {/* CORRECCIÓN: Quitados los estilos del fallback que ocultaban la foto real */}
+               {/* CORRECCIÓN: Etiqueta img limpia para que no sea interceptada erróneamente */}
                <img src="/francisco-navarro.png" alt="Francisco Navarro" className="w-full h-full object-cover" />
              </div>
            </div>
@@ -345,7 +345,7 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
        img: "/agente-contenido.png",
        badge: "3 Posts + 1 Reel + 1 Blog / sem",
        icon: <PenTool className="w-5 h-5 text-indigo-400" />,
-       position: "object-top" /* <-- CORRECCIÓN: object-top para bajar la foto del agente 1 */
+       position: "object-top" /* <-- CORRECCIÓN: Enfoca la parte superior de la imagen para que no se corte la cabeza */
    },
    {
        id: 'omnicanal',
@@ -354,7 +354,7 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
        img: "/agente-soporte.png",
        badge: "Atención 24/7 y Reputación",
        icon: <MessagesSquare className="w-5 h-5 text-purple-400" />,
-       position: "object-[center_15%]" /* <-- CORRECCIÓN: Ajuste de posición fino para bajar el agente 2 */
+       position: "object-[center_22%]" /* <-- CORRECCIÓN: Ajuste de posición preciso para que encuadre perfectamente abajo */
    },
    {
        id: 'email',
@@ -454,7 +454,7 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
                    <img 
                      src={agent.img}
                      alt={agent.title}
-                     className={`w-full h-full object-cover ${agent.position} transition-transform duration-500 group-hover:scale-105`} /* <-- CORRECCIÓN: Inyección del alineamiento dinámico */
+                     className={`w-full h-full object-cover ${agent.position} transition-transform duration-500 group-hover:scale-105`}
                      onError={(e) => { e.target.style.display = 'none'; }}
                    />
                    
@@ -493,35 +493,6 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
 
            <div className="text-center mt-12">
                <button onClick={() => navigateAndScroll('agents', 'agents-hero')} className="group bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-3 rounded-full font-bold text-lg transition-all flex items-center justify-center mx-auto shadow-[0_0_20px_rgba(79,70,229,0.4)] cursor-pointer tracking-tight border-none">Ver en detalle cómo trabaja cada agente<ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" /></button>
-           </div>
-         </div>
-       </section>
-
-       {/* --- SECCIÓN TESTIMONIOS --- */}
-       <section id="testimonios" className="py-24 bg-slate-900/50 relative overflow-hidden text-white text-center">
-         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="text-center mb-16 text-white">
-               <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Empresarios que escalaron su presencia</h2>
-               <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">Ellos delegaron la operación de sus canales en la Fuerza Digital de SCALAR.</p>
-           </div>
-           <div className="grid md:grid-cols-3 gap-8 text-left">
-             {[
-               { name: "Cristián", corp: "Veterinaria Moga", img: "/moga.png", text: "Antes perdíamos citas por no contestar el teléfono a tiempo. Ahora la agenda se llena sola y yo me dedico 100% a los animales." },
-               { name: "Patricio", corp: "Kinesiología Revit", img: "/revit.png", text: "Teníamos serias fugas de leads en los mensajes directos de Instagram y WhatsApp. El asistente omnicanal de SCALAR centralizó las respuestas al instante, agendó las citas y disparó nuestras reseñas positivas en Google Reviews de forma masiva." },
-               { name: "Oscar", corp: "Corredora Roca", img: "/roca.png", text: "En el rubro inmobiliario la velocidad es todo. Mis agentes responden a interesados en segundos, 24/7, y me dejan la reunión lista. Hemos duplicado las captaciones sin contratar más personal." }
-             ].map((test, i) => (
-               <div key={i} className="bg-slate-900 p-8 rounded-3xl border border-slate-800 relative shadow-lg">
-                 <Quote className="w-10 h-10 text-indigo-500/20 absolute top-6 right-6" />
-                 <div className="flex items-center gap-4 mb-6">
-                   <div className="w-14 h-14 rounded-full bg-white overflow-hidden p-1"><img src={test.img} alt={test.corp} className="w-full h-full object-contain" /></div>
-                   <div>
-                       <h4 className="font-bold text-white text-lg tracking-tight">{test.name}</h4>
-                       <p className="text-sm text-indigo-400 font-normal">{test.corp}</p>
-                   </div>
-                 </div>
-                 <p className="text-slate-300 text-sm italic leading-relaxed">"{test.text}"</p>
-               </div>
-             ))}
            </div>
          </div>
        </section>
