@@ -55,6 +55,9 @@ import agenteSoporteImg from '/agente-soporte.png';
 import agenteEmailImg from '/agente-email.png';
 import pabloNavarroImg from '/pablo-navarro.png';
 import franciscoNavarroImg from '/francisco-navarro.png';
+import mogaImg from '/moga.png';
+import revitImg from '/revit.png';
+import rocaImg from '/roca.png';
 
 // --- DEFINICIÓN DE AGENTES REESTRUCTURADOS ---
 const AGENTS = [
@@ -268,7 +271,6 @@ const AboutUs = ({ navigateAndScroll }) => (
          <div className="grid md:grid-cols-12 gap-10 items-center text-white">
            <div className="md:col-span-5 flex justify-center order-2 md:order-1">
              <div className="w-full max-w-sm h-80 rounded-2xl bg-slate-800 flex items-center justify-center border-4 border-fuchsia-700/40 shadow-2xl shadow-fuchsia-900/40 overflow-hidden relative">
-               {/* CORRECCIÓN: Inyección directa de la variable de módulo empaquetada */}
                <img src={pabloNavarroImg} alt="Pablo Navarro" className="w-full h-full object-cover" />
              </div>
            </div>
@@ -295,7 +297,6 @@ const AboutUs = ({ navigateAndScroll }) => (
            </div>
            <div className="md:col-span-5 flex justify-center text-violet-400">
              <div className="w-full max-w-sm h-80 rounded-2xl bg-slate-800 flex items-center justify-center border-4 border-violet-700/40 shadow-2xl shadow-violet-900/40 overflow-hidden relative">
-               {/* CORRECCIÓN: Inyección directa de la variable de módulo empaquetada */}
                <img src={franciscoNavarroImg} alt="Francisco Navarro" className="w-full h-full object-cover" />
              </div>
            </div>
@@ -319,6 +320,60 @@ const AboutUs = ({ navigateAndScroll }) => (
    </div>
  </section>
 );
+
+// --- COMPONENTE: NUEVA SECCIÓN CLIENTES ---
+const ClientsSection = () => {
+  const testimonials = [
+    { 
+      name: "Cristián", 
+      corp: "Veterinaria Moga", 
+      img: mogaImg, 
+      text: "Antes perdíamos citas por no contestar el teléfono a tiempo. Ahora la agenda se llena sola y yo me dedico 100% a los animales." 
+    },
+    { 
+      name: "Patricio", 
+      corp: "Kinesiología Revit", 
+      img: revitImg, 
+      text: "Teníamos serias fugas de leads en los mensajes directos de Instagram y WhatsApp. El asistente omnicanal de SCALAR centralizó las respuestas al instante, agendó las citas y disparó nuestras reseñas positivas en Google Reviews de forma masiva." 
+    },
+    { 
+      name: "Oscar", 
+      corp: "Corredora Roca", 
+      img: rocaImg, 
+      text: "En el rubro inmobiliario la velocidad es todo. Mis agentes responden a interesados en segundos, 24/7, y me dejan la reunión lista. Hemos duplicado las captaciones sin contratar más personal." 
+    }
+  ];
+
+  return (
+    <section className="py-24 bg-transparent text-white text-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Empresarios que escalaron su presencia</h2>
+          <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">Ellos delegaron la operación de sus canales en la Fuerza Digital de SCALAR.</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8 text-left">
+          {testimonials.map((test, i) => (
+            <div key={i} className="bg-slate-900 p-8 rounded-3xl border border-slate-800 relative shadow-lg flex flex-col justify-between">
+              <Quote className="w-10 h-10 text-indigo-500/20 absolute top-6 right-6" />
+              <div>
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-full bg-white overflow-hidden p-1">
+                    <img src={test.img} alt={test.corp} className="w-full h-full object-contain" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white text-lg tracking-tight">{test.name}</h4>
+                    <p className="text-sm text-indigo-400 font-normal">{test.corp}</p>
+                  </div>
+                </div>
+                <p className="text-slate-300 text-sm italic leading-relaxed">"{test.text}"</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 // --- COMPONENTE: CONTENIDO PRINCIPAL (HOME) ---
 const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
@@ -698,7 +753,7 @@ const App = () => {
            <div className="hidden md:flex space-x-6 items-center">
              <button onClick={() => navigateAndScroll('home', 'problema')} className="text-slate-300 hover:text-white transition-colors text-sm font-medium cursor-pointer tracking-tight bg-transparent border-none shadow-none p-0 m-0 outline-none focus:outline-none">El Problema</button>
              <button onClick={() => navigateAndScroll('home', 'solucion')} className="text-slate-300 hover:text-white transition-colors text-sm font-medium cursor-pointer tracking-tight bg-transparent border-none shadow-none p-0 m-0 outline-none focus:outline-none">Agentes</button>
-             <button onClick={() => navigateAndScroll('home', 'testimonios')} className="text-slate-300 hover:text-white transition-colors text-sm font-medium cursor-pointer tracking-tight bg-transparent border-none shadow-none p-0 m-0 outline-none focus:outline-none">Clientes</button>
+             <button onClick={() => navigateAndScroll('clients')} className="text-slate-300 hover:text-white transition-colors text-sm font-medium cursor-pointer tracking-tight bg-transparent border-none shadow-none p-0 m-0 outline-none focus:outline-none">Clientes</button>
              <button onClick={() => navigateAndScroll('home', 'precios')} className="text-slate-300 hover:text-white transition-colors text-sm font-medium cursor-pointer tracking-tight bg-transparent border-none shadow-none p-0 m-0 outline-none focus:outline-none">Planes</button>
              <button onClick={() => navigateAndScroll('about')} className="text-slate-300 hover:text-white transition-colors text-sm font-medium cursor-pointer tracking-tight bg-transparent border-none shadow-none p-0 m-0 outline-none focus:outline-none">Acerca de nosotros</button>
              
@@ -721,7 +776,7 @@ const App = () => {
            <div className="px-4 pt-2 pb-6 space-y-2 text-sm">
              <button onClick={() => navigateAndScroll('home', 'problema')} className="block w-full text-left py-4 text-slate-300 border-b border-slate-800 font-medium bg-transparent border-none">El Problema</button>
              <button onClick={() => navigateAndScroll('home', 'solucion')} className="block w-full text-left py-4 text-slate-300 border-b border-slate-800 font-medium bg-transparent border-none">Agentes</button>
-             <button onClick={() => navigateAndScroll('home', 'testimonios')} className="block w-full text-left py-4 text-slate-300 border-b border-slate-800 font-medium bg-transparent border-none">Clientes</button>
+             <button onClick={() => navigateAndScroll('clients')} className="block w-full text-left py-4 text-slate-300 border-b border-slate-800 font-medium bg-transparent border-none">Clientes</button>
              <button onClick={() => navigateAndScroll('home', 'precios')} className="block w-full text-left py-4 text-slate-300 border-b border-slate-800 font-medium bg-transparent border-none">Planes</button>
              <button onClick={() => navigateAndScroll('about')} className="block w-full text-left py-4 text-slate-300 border-b border-slate-800 font-medium bg-transparent border-none">Acerca de nosotros</button>
              
@@ -738,6 +793,7 @@ const App = () => {
      {currentPage === 'home' && <HomeContent scrollToSection={(id) => navigateAndScroll('home', id)} navigateAndScroll={navigateAndScroll} />}
      {currentPage === 'about' && <AboutUs navigateAndScroll={navigateAndScroll} />}
      {currentPage === 'agents' && <AgentsDetail navigateAndScroll={navigateAndScroll} />}
+     {currentPage === 'clients' && <ClientsSection />}
 
    </div>
  );
