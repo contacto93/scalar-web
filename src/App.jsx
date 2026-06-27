@@ -49,6 +49,13 @@ import {
  Gift
 } from 'lucide-react';
 
+// --- IMPORTACIÓN DE IMÁGENES COMO MÓDULOS (Solución Definitiva para Producción) ---
+import agenteContenidoImg from '/agente-contenido.png';
+import agenteSoporteImg from '/agente-soporte.png';
+import agenteEmailImg from '/agente-email.png';
+import pabloNavarroImg from '/pablo-navarro.png';
+import franciscoNavarroImg from '/francisco-navarro.png';
+
 // --- DEFINICIÓN DE AGENTES REESTRUCTURADOS ---
 const AGENTS = [
    {
@@ -57,7 +64,7 @@ const AGENTS = [
        icon: PenTool,
        color: 'indigo',
        tagline: 'Presencia, autoridad y omnicanalidad orgánica.',
-       img: '/agente-contenido.png',
+       img: agenteContenidoImg,
        description: 'Se encarga de internalizar el ADN de tu negocio mediante el onboarding para diseñar, redactar y publicar campañas consistentes en tus redes sociales y blog corporativo.'
    },
    {
@@ -66,7 +73,7 @@ const AGENTS = [
        icon: MessagesSquare,
        color: 'purple',
        tagline: 'Atención instantánea, citas y reputación 24/7.',
-       img: '/agente-soporte.png',
+       img: agenteSoporteImg,
        description: 'Maneja consultas complejas en tiempo real, agenda reuniones directo en tu calendario y activa estratégicamente enlaces de Google Reviews para potenciar tu marca.'
    },
    {
@@ -75,7 +82,7 @@ const AGENTS = [
        icon: Mail,
        color: 'emerald',
        tagline: 'Nutrición y monetización de tus bases de datos.',
-       img: '/agente-email.png',
+       img: agenteEmailImg,
        description: 'Se encarga de estructurar flujos de correo inteligentes segmentando de manera automatizada tus bases de datos para fidelizar y activar compras recurrentes.'
    }
 ];
@@ -157,7 +164,6 @@ const AgentsDetail = ({ navigateAndScroll }) => {
                              src={agent.img} 
                              alt={`Agente ${agent.name}`} 
                              className="w-full h-full object-cover object-center" 
-                             onError={(e) => { e.target.style.display = 'none'; }} 
                            />
                            <div className="absolute bottom-2 right-2 bg-slate-900/90 p-2 rounded-xl border border-slate-800 shadow-lg flex items-center justify-center">
                                <Icon className={`w-5 h-5 ${textColor}`} />
@@ -262,8 +268,8 @@ const AboutUs = ({ navigateAndScroll }) => (
          <div className="grid md:grid-cols-12 gap-10 items-center text-white">
            <div className="md:col-span-5 flex justify-center order-2 md:order-1">
              <div className="w-full max-w-sm h-80 rounded-2xl bg-slate-800 flex items-center justify-center border-4 border-fuchsia-700/40 shadow-2xl shadow-fuchsia-900/40 overflow-hidden relative">
-               {/* CORRECCIÓN: Etiqueta img limpia para que no sea interceptada erróneamente */}
-               <img src="/pablo-navarro.png" alt="Pablo Navarro" className="w-full h-full object-cover" />
+               {/* CORRECCIÓN: Inyección directa de la variable de módulo empaquetada */}
+               <img src={pabloNavarroImg} alt="Pablo Navarro" className="w-full h-full object-cover" />
              </div>
            </div>
            <div className="md:col-span-7 order-1 md:order-2">
@@ -289,8 +295,8 @@ const AboutUs = ({ navigateAndScroll }) => (
            </div>
            <div className="md:col-span-5 flex justify-center text-violet-400">
              <div className="w-full max-w-sm h-80 rounded-2xl bg-slate-800 flex items-center justify-center border-4 border-violet-700/40 shadow-2xl shadow-violet-900/40 overflow-hidden relative">
-               {/* CORRECCIÓN: Etiqueta img limpia para que no sea interceptada erróneamente */}
-               <img src="/francisco-navarro.png" alt="Francisco Navarro" className="w-full h-full object-cover" />
+               {/* CORRECCIÓN: Inyección directa de la variable de módulo empaquetada */}
+               <img src={franciscoNavarroImg} alt="Francisco Navarro" className="w-full h-full object-cover" />
              </div>
            </div>
          </div>
@@ -345,7 +351,7 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
        img: "/agente-contenido.png",
        badge: "3 Posts + 1 Reel + 1 Blog / sem",
        icon: <PenTool className="w-5 h-5 text-indigo-400" />,
-       position: "object-top" /* <-- CORRECCIÓN: Enfoca la parte superior de la imagen para que no se corte la cabeza */
+       position: "object-top"
    },
    {
        id: 'omnicanal',
@@ -354,7 +360,7 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
        img: "/agente-soporte.png",
        badge: "Atención 24/7 y Reputación",
        icon: <MessagesSquare className="w-5 h-5 text-purple-400" />,
-       position: "object-[center_22%]" /* <-- CORRECCIÓN: Ajuste de posición preciso para que encuadre perfectamente abajo */
+       position: "object-[center_22%]"
    },
    {
        id: 'email',
@@ -437,7 +443,7 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
          </div>
        </section>
 
-       {/* --- SECCIÓN NUEVO EQUIPO DIGITAL (SOLUCIÓN CORREGIDA) --- */}
+       {/* --- SECCIÓN NUEVO EQUIPO DIGITAL (SOLUCIÓN) --- */}
        <section id="solucion" className="py-24 bg-slate-950">
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="text-center mb-16 text-white">
