@@ -625,9 +625,9 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
            <h2 className="text-3xl md:text-5xl font-bold mb-12 tracking-tight">Preguntas Frecuentes</h2>
            <div className="space-y-4 text-left">
              {[
-               { q: "@¿Cómo se conecta SCALAR a mis redes sociales?", a: "Es 100% seguro. Durante el ingreso a la plataforma realizas el inicio de sesión oficial con Meta Login para otorgarnos los tokens autorizados. Nosotros nunca vemos ni guardamos tus contraseñas." },
+               { q: "¿Cómo se conecta SCALAR a mis redes sociales?", a: "Es 100% seguro. Durante el ingreso a la plataforma realizas el inicio de sesión oficial con Meta Login para otorgarnos los tokens autorizados. Nosotros nunca vemos ni guardamos tus contraseñas." },
                { q: "¿Qué información necesita el onboarding?", a: "Te guiaremos mediante un formulario inteligente donde nuestro agente asimilará el rubro, nombre, servicios, misión, ventajas comparativas y los casos de éxito de tu empresa para redactar y contestar de manera exacta." },
-               { q: "@¿Qué pasa si un cliente hace una pregunta que el Agente no sabe?", a: "Nuestra IA de conversión y soporte cuenta con un protocolo de escalabilidad humana. Si detecta una consulta sumamente específica o que requiere criterio comercial humano, derivará el caso de inmediato a un representante real." },
+               { q: "¿Qué pasa si un cliente hace una pregunta que el Agente no sabe?", a: "Nuestra IA de conversión y soporte cuenta con un protocolo de escalabilidad humana. Si detecta una consulta sumamente específica o que requiere criterio comercial humano, derivará el caso de inmediato a un representante real." },
                { q: "¿El contenido que publican los agentes requiere mi aprobación?", a: "Nuestros agentes autónomos están estructurados bajo flujos predecibles y de alta autoridad. Sin embargo, en el panel central de Scalar siempre tendrás la visibilidad completa de las pautas programadas de manera semanal." }
              ].map((item, index) => (
                <div key={index} className="border border-slate-800 rounded-xl overflow-hidden bg-slate-900 shadow-lg">
