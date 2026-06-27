@@ -167,6 +167,7 @@ const AgentsDetail = ({ navigateAndScroll }) => {
                              src={agent.img} 
                              alt={`Agente ${agent.name}`} 
                              className="w-full h-full object-cover object-center" 
+                             onError={(e) => { e.target.style.display = 'none'; }} 
                            />
                            <div className="absolute bottom-2 right-2 bg-slate-900/90 p-2 rounded-xl border border-slate-800 shadow-lg flex items-center justify-center">
                                <Icon className={`w-5 h-5 ${textColor}`} />
@@ -277,7 +278,7 @@ const AboutUs = ({ navigateAndScroll }) => (
            <div className="md:col-span-7 order-1 md:order-2">
              <h3 className="text-3xl font-bold text-fuchsia-400 mb-4 tracking-tight">Pablo Navarro: Estrategia de Contenido y Arquitectura de Sistemas IA</h3>
              <p className="text-lg text-slate-300 mb-4 leading-relaxed">
-               Con una sólida trayectoria en **Operaciones Financieras de gran escala (Banco Santander)**, Pablo desarrolló una visión sistémica para estructurar flujos de datos complejos y predecibles. Esta experiencia, combinada con su trayectoria trabajando en empresas diseñando arquitecturas de IA para la generación automatizada de contenido omnicanal de alta fidelidad, le permite construir sistemas digitales autónomos que replican con precisión quirúrgica la voz, tono y objetivos comerciales de cualquier negocio.
+               Con una sólida trayectoria en **Operaciones Financieras de gran escala (Banco Santander)**, Pablo desarrolló una visión sistémica para estructurar flujos de datos complejos y predecibles. Esta experiencia, combinada con su trayectoria trabajando en empresas diseñando arquitecturas de IA para la generación automatizada de contenido omnicanal de alta fidelidad, le permite construir sistemas digitales autónomos que replicican con precisión quirúrgica la voz, tono y objetivos comerciales de cualquier negocio.
              </p>
              <p className="text-slate-400 italic text-sm border-l-2 border-fuchsia-400 pl-4 py-1">
                "Mi enfoque es crear estructuras de IA tan robustas que una empresa pueda multiplicar su presencia digital por diez, manteniendo la consistencia de una multinacional con el costo de un software."
@@ -320,60 +321,6 @@ const AboutUs = ({ navigateAndScroll }) => (
    </div>
  </section>
 );
-
-// --- COMPONENTE: NUEVA SECCIÓN CLIENTES ---
-const ClientsSection = () => {
-  const testimonials = [
-    { 
-      name: "Cristián", 
-      corp: "Veterinaria Moga", 
-      img: mogaImg, 
-      text: "Antes perdíamos citas por no contestar el teléfono a tiempo. Ahora la agenda se llena sola y yo me dedico 100% a los animales." 
-    },
-    { 
-      name: "Patricio", 
-      corp: "Kinesiología Revit", 
-      img: revitImg, 
-      text: "Teníamos serias fugas de leads en los mensajes directos de Instagram y WhatsApp. El asistente omnicanal de SCALAR centralizó las respuestas al instante, agendó las citas y disparó nuestras reseñas positivas en Google Reviews de forma masiva." 
-    },
-    { 
-      name: "Oscar", 
-      corp: "Corredora Roca", 
-      img: rocaImg, 
-      text: "En el rubro inmobiliario la velocidad es todo. Mis agentes responden a interesados en segundos, 24/7, y me dejan la reunión lista. Hemos duplicado las captaciones sin contratar más personal." 
-    }
-  ];
-
-  return (
-    <section className="py-24 bg-transparent text-white text-center">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Empresarios que escalaron su presencia</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">Ellos delegaron la operación de sus canales en la Fuerza Digital de SCALAR.</p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-8 text-left">
-          {testimonials.map((test, i) => (
-            <div key={i} className="bg-slate-900 p-8 rounded-3xl border border-slate-800 relative shadow-lg flex flex-col justify-between">
-              <Quote className="w-10 h-10 text-indigo-500/20 absolute top-6 right-6" />
-              <div>
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-full bg-white overflow-hidden p-1">
-                    <img src={test.img} alt={test.corp} className="w-full h-full object-contain" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-white text-lg tracking-tight">{test.name}</h4>
-                    <p className="text-sm text-indigo-400 font-normal">{test.corp}</p>
-                  </div>
-                </div>
-                <p className="text-slate-300 text-sm italic leading-relaxed">"{test.text}"</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
 
 // --- COMPONENTE: CONTENIDO PRINCIPAL (HOME) ---
 const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
@@ -425,6 +372,27 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
        badge: "Nutrición de Leads y Recompra",
        icon: <Mail className="w-5 h-5 text-emerald-400" />,
        position: "object-center"
+   }
+ ];
+
+ const testimonials = [
+   { 
+     name: "Cristián", 
+     corp: "Veterinaria Moga", 
+     img: mogaImg, 
+     text: "Antes perdíamos citas por no contestar el teléfono a tiempo. Ahora la agenda se llena sola y yo me dedico 100% a los animales." 
+   },
+   { 
+     name: "Patricio", 
+     corp: "Kinesiología Revit", 
+     img: revitImg, 
+     text: "Teníamos serias fugas de leads en los mensajes directos de Instagram y WhatsApp. El asistente omnicanal de SCALAR centralizó las respuestas al instante, agendó las citas y disparó nuestras reseñas positivas en Google Reviews de forma masiva." 
+   },
+   { 
+     name: "Oscar", 
+     corp: "Corredora Roca", 
+     img: rocaImg, 
+     text: "En el rubro inmobiliario la velocidad es todo. Mis agentes responden a interesados en segundos, 24/7, y me dejan la reunión lista. Hemos duplicado las captaciones sin contratar más personal." 
    }
  ];
 
@@ -558,6 +526,35 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
          </div>
        </section>
 
+       {/* --- CORRECCIÓN: REINTEGRACIÓN DE LA SECCIÓN CLIENTES DENTRO DEL HOME --- */}
+       <section id="testimonios" className="py-24 bg-slate-900/50 relative overflow-hidden text-white text-center border-t border-slate-900">
+         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div className="text-center mb-16 text-white">
+               <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Empresarios que escalaron su presencia</h2>
+               <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">Ellos delegaron la operación de sus canales en la Fuerza Digital de SCALAR.</p>
+           </div>
+           <div className="grid md:grid-cols-3 gap-8 text-left">
+             {testimonials.map((test, i) => (
+               <div key={i} className="bg-slate-900 p-8 rounded-3xl border border-slate-800 relative shadow-lg flex flex-col justify-between">
+                 <Quote className="w-10 h-10 text-indigo-500/20 absolute top-6 right-6" />
+                 <div>
+                   <div className="flex items-center gap-4 mb-6">
+                     <div className="w-14 h-14 rounded-full bg-white overflow-hidden p-1">
+                       <img src={test.img} alt={test.corp} className="w-full h-full object-contain" />
+                     </div>
+                     <div>
+                         <h4 className="font-bold text-white text-lg tracking-tight">{test.name}</h4>
+                         <p className="text-sm text-indigo-400 font-normal">{test.corp}</p>
+                     </div>
+                   </div>
+                   <p className="text-slate-300 text-sm italic leading-relaxed">"{test.text}"</p>
+                 </div>
+               </div>
+             ))}
+           </div>
+         </div>
+       </section>
+
        {/* --- SECCIÓN PLANES / PRECIOS --- */}
        <section id="precios" className="py-24 bg-slate-950 text-white text-center">
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -628,9 +625,9 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
            <h2 className="text-3xl md:text-5xl font-bold mb-12 tracking-tight">Preguntas Frecuentes</h2>
            <div className="space-y-4 text-left">
              {[
-               { q: "¿Cómo se conecta SCALAR a mis redes sociales?", a: "Es 100% seguro. Durante el ingreso a la plataforma realizas el inicio de sesión oficial con Meta Login para otorgarnos los tokens autorizados. Nosotros nunca vemos ni guardamos tus contraseñas." },
+               { q: "@¿Cómo se conecta SCALAR a mis redes sociales?", a: "Es 100% seguro. Durante el ingreso a la plataforma realizas el inicio de sesión oficial con Meta Login para otorgarnos los tokens autorizados. Nosotros nunca vemos ni guardamos tus contraseñas." },
                { q: "¿Qué información necesita el onboarding?", a: "Te guiaremos mediante un formulario inteligente donde nuestro agente asimilará el rubro, nombre, servicios, misión, ventajas comparativas y los casos de éxito de tu empresa para redactar y contestar de manera exacta." },
-               { q: "¿Qué pasa si un cliente hace una pregunta que el Agente no sabe?", a: "Nuestra IA de conversión y soporte cuenta con un protocolo de escalabilidad humana. Si detecta una consulta sumamente específica o que requiere criterio comercial humano, derivará el caso de inmediato a un representante real." },
+               { q: "@¿Qué pasa si un cliente hace una pregunta que el Agente no sabe?", a: "Nuestra IA de conversión y soporte cuenta con un protocolo de escalabilidad humana. Si detecta una consulta sumamente específica o que requiere criterio comercial humano, derivará el caso de inmediato a un representante real." },
                { q: "¿El contenido que publican los agentes requiere mi aprobación?", a: "Nuestros agentes autónomos están estructurados bajo flujos predecibles y de alta autoridad. Sin embargo, en el panel central de Scalar siempre tendrás la visibilidad completa de las pautas programadas de manera semanal." }
              ].map((item, index) => (
                <div key={index} className="border border-slate-800 rounded-xl overflow-hidden bg-slate-900 shadow-lg">
@@ -753,7 +750,7 @@ const App = () => {
            <div className="hidden md:flex space-x-6 items-center">
              <button onClick={() => navigateAndScroll('home', 'problema')} className="text-slate-300 hover:text-white transition-colors text-sm font-medium cursor-pointer tracking-tight bg-transparent border-none shadow-none p-0 m-0 outline-none focus:outline-none">El Problema</button>
              <button onClick={() => navigateAndScroll('home', 'solucion')} className="text-slate-300 hover:text-white transition-colors text-sm font-medium cursor-pointer tracking-tight bg-transparent border-none shadow-none p-0 m-0 outline-none focus:outline-none">Agentes</button>
-             <button onClick={() => navigateAndScroll('clients')} className="text-slate-300 hover:text-white transition-colors text-sm font-medium cursor-pointer tracking-tight bg-transparent border-none shadow-none p-0 m-0 outline-none focus:outline-none">Clientes</button>
+             <button onClick={() => navigateAndScroll('home', 'testimonios')} className="text-slate-300 hover:text-white transition-colors text-sm font-medium cursor-pointer tracking-tight bg-transparent border-none shadow-none p-0 m-0 outline-none focus:outline-none">Clientes</button>
              <button onClick={() => navigateAndScroll('home', 'precios')} className="text-slate-300 hover:text-white transition-colors text-sm font-medium cursor-pointer tracking-tight bg-transparent border-none shadow-none p-0 m-0 outline-none focus:outline-none">Planes</button>
              <button onClick={() => navigateAndScroll('about')} className="text-slate-300 hover:text-white transition-colors text-sm font-medium cursor-pointer tracking-tight bg-transparent border-none shadow-none p-0 m-0 outline-none focus:outline-none">Acerca de nosotros</button>
              
@@ -776,7 +773,7 @@ const App = () => {
            <div className="px-4 pt-2 pb-6 space-y-2 text-sm">
              <button onClick={() => navigateAndScroll('home', 'problema')} className="block w-full text-left py-4 text-slate-300 border-b border-slate-800 font-medium bg-transparent border-none">El Problema</button>
              <button onClick={() => navigateAndScroll('home', 'solucion')} className="block w-full text-left py-4 text-slate-300 border-b border-slate-800 font-medium bg-transparent border-none">Agentes</button>
-             <button onClick={() => navigateAndScroll('clients')} className="block w-full text-left py-4 text-slate-300 border-b border-slate-800 font-medium bg-transparent border-none">Clientes</button>
+             <button onClick={() => navigateAndScroll('home', 'testimonios')} className="block w-full text-left py-4 text-slate-300 border-b border-slate-800 font-medium bg-transparent border-none">Clientes</button>
              <button onClick={() => navigateAndScroll('home', 'precios')} className="block w-full text-left py-4 text-slate-300 border-b border-slate-800 font-medium bg-transparent border-none">Planes</button>
              <button onClick={() => navigateAndScroll('about')} className="block w-full text-left py-4 text-slate-300 border-b border-slate-800 font-medium bg-transparent border-none">Acerca de nosotros</button>
              
@@ -793,7 +790,6 @@ const App = () => {
      {currentPage === 'home' && <HomeContent scrollToSection={(id) => navigateAndScroll('home', id)} navigateAndScroll={navigateAndScroll} />}
      {currentPage === 'about' && <AboutUs navigateAndScroll={navigateAndScroll} />}
      {currentPage === 'agents' && <AgentsDetail navigateAndScroll={navigateAndScroll} />}
-     {currentPage === 'clients' && <ClientsSection />}
 
    </div>
  );
