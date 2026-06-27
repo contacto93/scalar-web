@@ -119,7 +119,7 @@ const AgentsDetail = ({ navigateAndScroll }) => {
                standard: [
                    { icon: MessageCircle, title: "Centralización Omnicanal", desc: "Opera en WhatsApp, Sitio Web, Instagram DMs, Facebook DMs y comentarios." },
                    { icon: Calendar, title: "Acceso y Agendamiento Real", desc: "Sincroniza con tus calendarios para separar citas sin solapamientos." },
-                   { icon: Star, title: "Multiplicador Google Reviews", desc: "Detecta clientes satisfechos y les envía un link de calificación." },
+                   { icon: Star, title: "Multiplicador Google Reviews", desc: "Detecta clientes satisfieds y les envía un link de calificación." },
                    { icon: Zap, title: "Escalabilidad Humana", desc: "Deriva fluidamente con un representante real ante casos críticos." }
                ],
                kpis: [
@@ -261,9 +261,9 @@ const AboutUs = ({ navigateAndScroll }) => (
        <div className="space-y-16">
          <div className="grid md:grid-cols-12 gap-10 items-center text-white">
            <div className="md:col-span-5 flex justify-center order-2 md:order-1">
-             <div className="w-full max-w-sm h-80 rounded-2xl bg-slate-800 flex items-center justify-center border-4 border-fuchsia-700/40 shadow-2xl shadow-fuchsia-900/40 overflow-hidden text-fuchsia-400">
-               <img src="/pablo-navarro.png" alt="Pablo Navarro" className="w-full h-full object-cover" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }} />
-               <div style={{display: 'none'}} className="w-full h-full items-center justify-center"><Users className="w-16 h-16" /></div>
+             <div className="w-full max-w-sm h-80 rounded-2xl bg-slate-800 flex items-center justify-center border-4 border-fuchsia-700/40 shadow-2xl shadow-fuchsia-900/40 overflow-hidden relative">
+               {/* CORRECCIÓN: Quitados los estilos del fallback que ocultaban la foto real */}
+               <img src="/pablo-navarro.png" alt="Pablo Navarro" className="w-full h-full object-cover" />
              </div>
            </div>
            <div className="md:col-span-7 order-1 md:order-2">
@@ -271,7 +271,7 @@ const AboutUs = ({ navigateAndScroll }) => (
              <p className="text-lg text-slate-300 mb-4 leading-relaxed">
                Con una sólida trayectoria en **Operaciones Financieras de gran escala (Banco Santander)**, Pablo desarrolló una visión sistémica para estructurar flujos de datos complejos y predecibles. Esta experiencia, combinada con su trayectoria trabajando en empresas diseñando arquitecturas de IA para la generación automatizada de contenido omnicanal de alta fidelidad, le permite construir sistemas digitales autónomos que replican con precisión quirúrgica la voz, tono y objetivos comerciales de cualquier negocio.
              </p>
-             <p className="text-slate-400 italic text-sm">
+             <p className="text-slate-400 italic text-sm border-l-2 border-fuchsia-400 pl-4 py-1">
                "Mi enfoque es crear estructuras de IA tan robustas que una empresa pueda multiplicar su presencia digital por diez, manteniendo la consistencia de una multinacional con el costo de un software."
              </p>
            </div>
@@ -283,14 +283,14 @@ const AboutUs = ({ navigateAndScroll }) => (
              <p className="text-lg text-slate-300 mb-4 leading-relaxed">
                La base de Francisco en la **gestión de inversiones** le otorgó una vasta experiencia lidiando con audiencias de alta exigencia, entendiendo la psicología del consumidor y la importancia de la velocidad en el cierre comercial. Su paso por el emprendimiento y el e-commerce le dio la visión de los cuellos de botella en la conversión de leads, especializándose en el desarrollo de agentes autónomos orientados a la retención inmediata, nutrición por email y captación de clientes 24/7.
              </p>
-             <p className="text-slate-400 italic text-sm">
+             <p className="text-slate-400 italic text-sm border-l-2 border-violet-400 pl-4 py-1">
                "El marketing orgánico y la atención no deberían consumir el tiempo del dueño de negocio. La IA democratiza la omnipresencia: permite a cualquier PYME convertir prospectos en clientes al segundo, en piloto automático."
              </p>
            </div>
            <div className="md:col-span-5 flex justify-center text-violet-400">
-             <div className="w-full max-w-sm h-80 rounded-2xl bg-slate-800 flex items-center justify-center border-4 border-violet-700/40 shadow-2xl shadow-violet-900/40 overflow-hidden">
-               <img src="/francisco-navarro.png" alt="Francisco Navarro" className="w-full h-full object-cover" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }} />
-               <div style={{display: 'none'}} className="w-full h-full items-center justify-center"><Briefcase className="w-16 h-16" /></div>
+             <div className="w-full max-w-sm h-80 rounded-2xl bg-slate-800 flex items-center justify-center border-4 border-violet-700/40 shadow-2xl shadow-violet-900/40 overflow-hidden relative">
+               {/* CORRECCIÓN: Quitados los estilos del fallback que ocultaban la foto real */}
+               <img src="/francisco-navarro.png" alt="Francisco Navarro" className="w-full h-full object-cover" />
              </div>
            </div>
          </div>
@@ -302,7 +302,7 @@ const AboutUs = ({ navigateAndScroll }) => (
            Nuestra experiencia combinada, sumando la gestión operativa y la arquitectura de sistemas escalables, nos permitió identificar un patrón común: **el emprendedor es el cuello de botella de su propio crecimiento.** Por ello, SCALAR no es solo un conjunto de chatbots o automatizaciones; es una estructura de inteligencia artificial que replica, ejecuta y mejora los procesos internos críticos que quitan el tiempo del dueño.
          </p>
          <p className="text-lg text-slate-300 leading-relaxed font-semibold">
-           <span className="text-fuchsia-400">Nuestra misión:</span> Convertir la frustración del trabajo administrativo en tiempo libre y crecimiento exponencial, basándose en nuestra propia experiencia superando esas barreras.
+           <span className="text-fuchsia-400">Nuestra misión:</span> Convertir la frustración del trabajo administrativo en tiempo libre y crecimiento exponencial, basándonos en nuestra propia experiencia superando esas barreras.
          </p>
        </div>
 
@@ -344,7 +344,8 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
        description: "Diseñan, redactan y ejecutan paralelamente campañas orgánicas de autoridad o promoción en Meta (FB, IG), X y Blog corporativo. Tu marca activa y armónica en piloto automático.",
        img: "/agente-contenido.png",
        badge: "3 Posts + 1 Reel + 1 Blog / sem",
-       icon: <PenTool className="w-5 h-5 text-indigo-400" />
+       icon: <PenTool className="w-5 h-5 text-indigo-400" />,
+       position: "object-top" /* <-- CORRECCIÓN: object-top para bajar la foto del agente 1 */
    },
    {
        id: 'omnicanal',
@@ -352,7 +353,8 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
        description: "Un chatbot omnicanal experto que opera en WhatsApp, Web y DMs. Resuelve dudas, tiene acceso a tu agenda corporativa para concertar citas e impulsa tu reputación mediante enlaces inteligentes a Google Reviews.",
        img: "/agente-soporte.png",
        badge: "Atención 24/7 y Reputación",
-       icon: <MessagesSquare className="w-5 h-5 text-purple-400" />
+       icon: <MessagesSquare className="w-5 h-5 text-purple-400" />,
+       position: "object-[center_15%]" /* <-- CORRECCIÓN: Ajuste de posición fino para bajar el agente 2 */
    },
    {
        id: 'email',
@@ -360,13 +362,14 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
        description: "Alimenta de forma dinámica tus listas de contactos desde el chatbot. Redacta y envía flujos hiper-personalizados segmentados quirúrgicamente entre prospectos y clientes recurrentes para maximizar tus ventas.",
        img: "/agente-email.png",
        badge: "Nutrición de Leads y Recompra",
-       icon: <Mail className="w-5 h-5 text-emerald-400" />
+       icon: <Mail className="w-5 h-5 text-emerald-400" />,
+       position: "object-center"
    }
  ];
 
  return (
    <>
-     {/* --- HERO SECTION RE-ENFOCADO CON OPCIÓN A --- */}
+     {/* --- HERO SECTION --- */}
      <section className="relative pt-32 pb-32 lg:pt-48 lg:pb-48 overflow-hidden md:h-screen flex items-center">
          <div className="absolute inset-0 z-0">
            <img src="/agente-bg.png" alt="Agente IA" className="w-full h-full object-cover opacity-75" style={{ objectPosition: 'center top' }} />
@@ -377,13 +380,11 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
              <span className="flex h-2 w-2 rounded-full bg-cyan-400 mr-2 animate-pulse shadow-[0_0_10px_#22d3ee]"></span>Fuerza Laboral Digital Autónoma
            </div>
            
-           {/* Título Opción A */}
            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight text-white drop-shadow-2xl">
              Tus Redes, Canales y Marketing<br />
              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-indigo-200 to-cyan-200 animate-gradient">Operando al 100% en Piloto Automático.</span>
            </h1>
            
-           {/* Bajada Opción A */}
            <p className="max-w-4xl mx-auto text-base md:text-xl text-slate-100 mb-10 leading-relaxed drop-shadow-lg font-medium opacity-90">
              Conecta mediante <span className="text-white font-bold text-shadow-glow">Meta Login</span>, completa tu onboarding en 5 minutos y despliega agentes autónomos de IA que internalizan el <strong>ADN de tu empresa</strong>. Deja que nuestra tecnología redacte tu contenido, publique <strong>Reels cinematográficos semanales con tu avatar</strong>, atienda tus DMs 24/7, agende citas y dispare tus reseñas en Google Reviews de forma autónoma.
            </p>
@@ -436,7 +437,7 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
          </div>
        </section>
 
-       {/* --- SECCIÓN NUEVO EQUIPO DIGITAL (SOLUCIÓN) --- */}
+       {/* --- SECCIÓN NUEVO EQUIPO DIGITAL (SOLUCIÓN CORREGIDA) --- */}
        <section id="solucion" className="py-24 bg-slate-950">
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="text-center mb-16 text-white">
@@ -453,7 +454,7 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
                    <img 
                      src={agent.img}
                      alt={agent.title}
-                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                     className={`w-full h-full object-cover ${agent.position} transition-transform duration-500 group-hover:scale-105`} /* <-- CORRECCIÓN: Inyección del alineamiento dinámico */
                      onError={(e) => { e.target.style.display = 'none'; }}
                    />
                    
@@ -496,6 +497,35 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
          </div>
        </section>
 
+       {/* --- SECCIÓN TESTIMONIOS --- */}
+       <section id="testimonios" className="py-24 bg-slate-900/50 relative overflow-hidden text-white text-center">
+         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div className="text-center mb-16 text-white">
+               <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Empresarios que escalaron su presencia</h2>
+               <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">Ellos delegaron la operación de sus canales en la Fuerza Digital de SCALAR.</p>
+           </div>
+           <div className="grid md:grid-cols-3 gap-8 text-left">
+             {[
+               { name: "Cristián", corp: "Veterinaria Moga", img: "/moga.png", text: "Antes perdíamos citas por no contestar el teléfono a tiempo. Ahora la agenda se llena sola y yo me dedico 100% a los animales." },
+               { name: "Patricio", corp: "Kinesiología Revit", img: "/revit.png", text: "Teníamos serias fugas de leads en los mensajes directos de Instagram y WhatsApp. El asistente omnicanal de SCALAR centralizó las respuestas al instante, agendó las citas y disparó nuestras reseñas positivas en Google Reviews de forma masiva." },
+               { name: "Oscar", corp: "Corredora Roca", img: "/roca.png", text: "En el rubro inmobiliario la velocidad es todo. Mis agentes responden a interesados en segundos, 24/7, y me dejan la reunión lista. Hemos duplicado las captaciones sin contratar más personal." }
+             ].map((test, i) => (
+               <div key={i} className="bg-slate-900 p-8 rounded-3xl border border-slate-800 relative shadow-lg">
+                 <Quote className="w-10 h-10 text-indigo-500/20 absolute top-6 right-6" />
+                 <div className="flex items-center gap-4 mb-6">
+                   <div className="w-14 h-14 rounded-full bg-white overflow-hidden p-1"><img src={test.img} alt={test.corp} className="w-full h-full object-contain" /></div>
+                   <div>
+                       <h4 className="font-bold text-white text-lg tracking-tight">{test.name}</h4>
+                       <p className="text-sm text-indigo-400 font-normal">{test.corp}</p>
+                   </div>
+                 </div>
+                 <p className="text-slate-300 text-sm italic leading-relaxed">"{test.text}"</p>
+               </div>
+             ))}
+           </div>
+         </div>
+       </section>
+
        {/* --- SECCIÓN PLANES / PRECIOS --- */}
        <section id="precios" className="py-24 bg-slate-950 text-white text-center">
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -534,7 +564,7 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
                    <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-indigo-400 flex-shrink-0" /> <span><strong>Servicio 3:</strong> Agente de Email Marketing Inteligente</span></li>
                    <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-indigo-400 flex-shrink-0" /> <span>Segmentación Automatizada de Bases CRM</span></li>
                    <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-indigo-400 flex-shrink-0" /> <span>Campañas de Recompra y Nutrición de Leads</span></li>
-                   <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-indigo-400 flex-shrink-0" /> <span>Soporte Técnico Avanzado con Base RAG</span></li>
+                   <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-indigo-400 flex-shrink-0" /> <span>Soporte Técnico Advanced con Base RAG</span></li>
                  </ul>
                </div>
                <div className="mt-8 pt-6"><button onClick={() => scrollToSection('demo')} className="w-full py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-black transition-all shadow-lg cursor-pointer transform hover:scale-[1.02] border-none">Solicitar Demo</button></div>
