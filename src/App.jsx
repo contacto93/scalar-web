@@ -419,7 +419,7 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
            </p>
            
            <div className="flex flex-col sm:flex-row justify-center gap-4">
-             <button onClick={() => scrollToSection('demo')} className="group bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center shadow-[0_0_30px_rgba(79,70,229,0.4)] border border-indigo-400/20 cursor-pointer tracking-tight border-none">Solicitar Demostración<ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" /></button>
+             <button onClick={() => scrollToSection('demo')} className="group bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center shadow-[0_0_30px_rgba(79,70,229,0.4)] border border-indigo-400/20 cursor-pointer tracking-tight border-none">Comenzar<ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" /></button>
              <button onClick={() => navigateAndScroll('about')} className="px-8 py-4 rounded-xl font-semibold text-white hover:text-cyan-200 border border-white/20 hover:border-cyan-400/50 transition-all bg-white/5 backdrop-blur-md cursor-pointer text-lg tracking-tight">Conocer al Equipo</button>
            </div>
 
