@@ -77,7 +77,7 @@ const AGENTS = [
        id: 'omnicanal',
        name: 'Agente de Conversión y Soporte',
        icon: MessagesSquare,
-       color: 'purple',
+       color: 'cyan',
        tagline: 'Atención instantánea, agendamiento y reputación 24/7.',
        img: agenteSoporteImg,
        description: 'Responde consultas complejas en tiempo real en WhatsApp, Web y DMs, agenda citas directo en tu calendario y activa enlaces de Google Reviews automáticamente.'
@@ -86,7 +86,7 @@ const AGENTS = [
        id: 'email',
        name: 'Agente de Email Marketing',
        icon: Mail,
-       color: 'emerald',
+       color: 'indigo',
        tagline: 'Nutrición y monetización autónoma de clientes.',
        img: agenteEmailImg,
        description: 'Segmenta automáticamente tus contactos captados y envía secuencias inteligentes por correo para reactivar clientes y multiplicar tus ventas recurrentes.'
@@ -99,8 +99,8 @@ const AgentsDetail = ({ navigateAndScroll }) => {
        const agent = AGENTS.find(a => a.id === agentId);
        if (!agent) return null;
        const Icon = agent.icon;
-       const textColor = `text-${agent.color}-400`;
-       const borderColor = `border-${agent.color}-500/50`;
+       const textColor = 'text-cyan-400';
+       const borderColor = 'border-slate-800';
 
        const content = {
            contenido: {
@@ -116,9 +116,9 @@ const AgentsDetail = ({ navigateAndScroll }) => {
                    { icon: SearchCode, title: "Optimización SEO", desc: "Estructuración de textos y metadatos para posicionar orgánicamente en buscadores." }
                ],
                kpis: [
-                   { label: "Tiempo guardado semanal", value: "12 hrs", color: "text-green-400" },
+                   { label: "Tiempo guardado semanal", value: "12 hrs", color: "text-emerald-400" },
                    { label: "Ahorro en Agencias", value: "80%", color: "text-emerald-400" },
-                   { label: "Consistencia de Marca", value: "100%", color: "text-indigo-400" }
+                   { label: "Consistencia de Marca", value: "100%", color: "text-cyan-400" }
                ]
            },
            omnicanal: {
@@ -134,9 +134,9 @@ const AgentsDetail = ({ navigateAndScroll }) => {
                    { icon: Zap, title: "Escalabilidad Humana", desc: "Deriva automáticamente a un representante real ante casos críticos." }
                ],
                kpis: [
-                   { label: "Tiempo de Respuesta", value: "< 5s", color: "text-indigo-400" },
-                   { label: "Citas Agendadas", value: "x2.8", color: "text-green-400" },
-                   { label: "Reseñas Positivas", value: "+60%", color: "text-pink-400" }
+                   { label: "Tiempo de Respuesta", value: "< 5s", color: "text-cyan-400" },
+                   { label: "Citas Agendadas", value: "x2.8", color: "text-emerald-400" },
+                   { label: "Reseñas Positivas", value: "+60%", color: "text-cyan-400" }
                ]
            },
            email: {
@@ -152,18 +152,18 @@ const AgentsDetail = ({ navigateAndScroll }) => {
                    { icon: TrendingUp, title: "Promociones de Alta Conversión", desc: "Lanzamientos segmentados orientados a la lista correcta." }
                ],
                kpis: [
-                   { label: "Tasa de Apertura", value: "+35%", color: "text-green-400" },
+                   { label: "Tasa de Apertura", value: "+35%", color: "text-emerald-400" },
                    { label: "Ventas Recurrentes", value: "+30%", color: "text-emerald-400" },
-                   { label: "Retención de Clientes", value: "+45%", color: "text-blue-400" }
+                   { label: "Retención de Clientes", value: "+45%", color: "text-cyan-400" }
                ]
            }
        }[agentId];
 
        return (
-           <div key={agentId} id={agentId} className={`p-8 md:p-12 rounded-3xl border ${borderColor} bg-slate-900 shadow-2xl shadow-slate-950/50 mt-20 relative overflow-hidden`}>
+           <div key={agentId} id={agentId} className={`p-8 md:p-12 rounded-3xl border ${borderColor} bg-slate-900/90 shadow-2xl mt-20 relative overflow-hidden`}>
                <div className="flex flex-col md:flex-row items-center gap-8 mb-12 border-b border-slate-800 pb-8">
                    <div className="relative group">
-                       <div className={`w-40 h-40 rounded-2xl bg-slate-950 border-2 ${borderColor} overflow-hidden shadow-2xl flex items-center justify-center relative`}>
+                       <div className={`w-40 h-40 rounded-2xl bg-slate-950 border ${borderColor} overflow-hidden shadow-2xl flex items-center justify-center relative`}>
                            <img src={agent.img} alt={`Agente ${agent.name}`} className="w-full h-full object-cover object-center" onError={(e) => { e.target.style.display = 'none'; }} />
                            <div className="absolute bottom-2 right-2 bg-slate-900/90 p-2 rounded-xl border border-slate-800 shadow-lg flex items-center justify-center">
                                <Icon className={`w-5 h-5 ${textColor}`} />
@@ -171,7 +171,7 @@ const AgentsDetail = ({ navigateAndScroll }) => {
                        </div>
                    </div>
                    <div className="text-center md:text-left">
-                       <h3 className={`text-3xl md:text-5xl font-extrabold ${textColor} mb-2 tracking-tight`}>{agent.name}</h3>
+                       <h3 className={`text-3xl md:text-5xl font-extrabold text-white mb-2 tracking-tight`}>{agent.name}</h3>
                        <p className="text-xl font-medium text-slate-300">{agent.tagline}</p>
                    </div>
                </div>
@@ -183,12 +183,12 @@ const AgentsDetail = ({ navigateAndScroll }) => {
                            <p className="text-slate-300 text-lg leading-relaxed">{content.mision}</p>
                        </div>
                        <div>
-                           <h4 className={`text-xl font-bold mb-6 text-white border-l-4 ${borderColor.replace('border-', 'border-')} pl-4 tracking-tight`}>Funcionalidades Incluidas</h4>
+                           <h4 className={`text-xl font-bold mb-6 text-white border-l-4 border-cyan-400 pl-4 tracking-tight`}>Funcionalidades Incluidas</h4>
                            <div className="grid md:grid-cols-2 gap-6">
                                {content.standard.map((feat, i) => {
                                    const FeatIcon = feat.icon;
                                    return (
-                                       <div key={i} className="bg-slate-800/30 p-4 rounded-xl border border-slate-700/50 hover:bg-slate-800/50 transition-colors">
+                                       <div key={i} className="bg-slate-950/60 p-4 rounded-xl border border-slate-800/80 hover:bg-slate-800/40 transition-colors">
                                            <FeatIcon className={`w-5 h-5 ${textColor} mb-2`} />
                                            <h5 className="font-bold text-white text-sm mb-1">{feat.title}</h5>
                                            <p className="text-slate-400 text-xs leading-relaxed">{feat.desc}</p>
@@ -199,9 +199,9 @@ const AgentsDetail = ({ navigateAndScroll }) => {
                        </div>
                    </div>
                    <div className="space-y-8">
-                       <div className={`bg-gradient-to-br from-${agent.color}-500/20 to-slate-900/50 p-6 rounded-3xl border ${borderColor} relative overflow-hidden shadow-xl`}>
-                           <div className="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">Plan Growth</div>
-                           <h4 className="text-xl font-bold mb-6 text-white flex items-center gap-2 tracking-tight"><ArrowUpRight className="w-5 h-5" /> Potencia Avanzada</h4>
+                       <div className={`bg-slate-950/80 p-6 rounded-3xl border border-indigo-500/30 relative overflow-hidden shadow-xl`}>
+                           <div className="absolute top-0 right-0 bg-indigo-600/80 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">Plan Growth</div>
+                           <h4 className="text-xl font-bold mb-6 text-white flex items-center gap-2 tracking-tight"><ArrowUpRight className="w-5 h-5 text-cyan-400" /> Potencia Avanzada</h4>
                            <ul className="space-y-5">
                                {content.growth.map((item, i) => {
                                    const ItemIcon = item.icon;
@@ -218,7 +218,7 @@ const AgentsDetail = ({ navigateAndScroll }) => {
                            <h4 className="text-lg font-bold mb-4 text-white tracking-tight">Impacto Estimado</h4>
                            <div className="space-y-4">
                                {content.kpis.map((kpi, i) => (
-                                   <div key={i} className="flex items-end justify-between border-b border-slate-800 pb-2">
+                                   <div key={i} className="flex items-end justify-between border-b border-slate-800/80 pb-2">
                                        <p className="text-slate-400 text-xs">{kpi.label}</p>
                                        <p className={`text-2xl font-bold ${kpi.color}`}>{kpi.value}</p>
                                    </div>
@@ -233,9 +233,9 @@ const AgentsDetail = ({ navigateAndScroll }) => {
 
    return (
        <section className="bg-transparent min-h-screen pt-20">
-           <div id="agents-hero" className="pt-20 pb-16 bg-slate-900/50">
+           <div id="agents-hero" className="pt-20 pb-16 bg-slate-900/40">
                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                   <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 text-white">Arquitectura Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-indigo-500">Autónoma.</span></h1>
+                   <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 text-white">Arquitectura Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-indigo-400">Autónoma.</span></h1>
                    <p className="text-lg text-slate-300 max-w-3xl mx-auto mb-8 font-medium">Tres agentes especializados diseñados para asumir la carga operativa de tu marketing, atención al cliente y fidelización.</p>
                </div>
            </div>
@@ -243,7 +243,7 @@ const AgentsDetail = ({ navigateAndScroll }) => {
                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
                    {AGENTS.map(agent => renderAgentSection(agent.id))}
                    <div className="text-center pt-8">
-                       <button onClick={() => navigateAndScroll('home')} className="group bg-white text-slate-950 px-8 py-3 rounded-full font-bold text-lg transition-all flex items-center justify-center mx-auto hover:bg-indigo-50 transform hover:scale-105 shadow-lg cursor-pointer tracking-tight">Volver a la Página Principal<ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" /></button>
+                       <button onClick={() => navigateAndScroll('home')} className="group bg-slate-100 hover:bg-white text-slate-950 px-8 py-3 rounded-full font-bold text-lg transition-all flex items-center justify-center mx-auto shadow-lg cursor-pointer tracking-tight">Volver a la Página Principal<ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" /></button>
                    </div>
                </div>
            </div>
@@ -256,20 +256,20 @@ const AboutUs = ({ navigateAndScroll }) => (
  <section className="pt-32 pb-32 bg-transparent">
    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
      <div className="text-center mb-16 text-white">
-       <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">Nuestra Experiencia, <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-300 to-violet-400">Su Éxito.</span></h1>
+       <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">Nuestra Experiencia, <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-indigo-400">Su Éxito.</span></h1>
        <p className="text-xl text-slate-400 max-w-3xl mx-auto font-medium">SCALAR nació para eliminar el cuello de botella operativo del emprendedor.</p>
      </div>
 
-     <div className="bg-slate-900 p-8 md:p-12 rounded-3xl border border-slate-800 shadow-2xl">
+     <div className="bg-slate-900/80 p-8 md:p-12 rounded-3xl border border-slate-800 shadow-2xl">
        <div className="space-y-16">
          <div className="grid md:grid-cols-12 gap-10 items-center text-white">
            <div className="md:col-span-5 flex justify-center order-2 md:order-1">
-             <div className="w-full max-w-sm h-80 rounded-2xl bg-slate-800 flex items-center justify-center border-4 border-fuchsia-700/40 shadow-2xl overflow-hidden relative">
+             <div className="w-full max-w-sm h-80 rounded-2xl bg-slate-950 flex items-center justify-center border border-slate-800 shadow-2xl overflow-hidden relative">
                <img src={pabloNavarroImg} alt="Pablo Navarro" className="w-full h-full object-cover" />
              </div>
            </div>
            <div className="md:col-span-7 order-1 md:order-2">
-             <h3 className="text-3xl font-bold text-fuchsia-400 mb-4 tracking-tight">Pablo Navarro: Sistemas de IA y Contenido</h3>
+             <h3 className="text-3xl font-bold text-cyan-400 mb-4 tracking-tight">Pablo Navarro: Sistemas de IA y Contenido</h3>
              <p className="text-lg text-slate-300 mb-4 leading-relaxed">
                Con trayectoria en Operaciones Financieras y desarrollo de arquitecturas de IA para generación automatizada de contenido, Pablo lidera el diseño técnico de sistemas que replican el tono y la visión de marca con exactitud.
              </p>
@@ -278,13 +278,13 @@ const AboutUs = ({ navigateAndScroll }) => (
 
          <div className="grid md:grid-cols-12 gap-10 items-center text-white">
            <div className="md:col-span-7">
-             <h3 className="text-3xl font-bold text-violet-400 mb-4 tracking-tight">Francisco Navarro: Conversión y Escalamiento</h3>
+             <h3 className="text-3xl font-bold text-indigo-400 mb-4 tracking-tight">Francisco Navarro: Conversión y Escalamiento</h3>
              <p className="text-lg text-slate-300 mb-4 leading-relaxed">
                Especializado en gestión de inversiones y estrategias de aceleración comercial. Su enfoque está centrado en eliminar fugas de prospectos y crear flujos inmediatos de respuesta y conversión.
              </p>
            </div>
-           <div className="md:col-span-5 flex justify-center text-violet-400">
-             <div className="w-full max-w-sm h-80 rounded-2xl bg-slate-800 flex items-center justify-center border-4 border-violet-700/40 shadow-2xl overflow-hidden relative">
+           <div className="md:col-span-5 flex justify-center">
+             <div className="w-full max-w-sm h-80 rounded-2xl bg-slate-950 flex items-center justify-center border border-slate-800 shadow-2xl overflow-hidden relative">
                <img src={franciscoNavarroImg} alt="Francisco Navarro" className="w-full h-full object-cover" />
              </div>
            </div>
@@ -292,7 +292,7 @@ const AboutUs = ({ navigateAndScroll }) => (
        </div>
 
        <div className="text-center mt-12">
-           <button onClick={() => navigateAndScroll('home')} className="group bg-white text-slate-950 px-8 py-3 rounded-full font-bold text-lg transition-all flex items-center justify-center mx-auto hover:bg-indigo-50 transform hover:scale-105 shadow-lg cursor-pointer tracking-tight">Volver al Inicio<ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" /></button>
+           <button onClick={() => navigateAndScroll('home')} className="group bg-slate-100 hover:bg-white text-slate-950 px-8 py-3 rounded-full font-bold text-lg transition-all flex items-center justify-center mx-auto shadow-lg cursor-pointer tracking-tight">Volver al Inicio<ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" /></button>
        </div>
      </div>
    </div>
@@ -313,7 +313,7 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
        description: "Crea y programa automáticamente pautas de contenido para Meta, X y tu Blog. Revisa y aprueba todo el material programado desde tu panel central con un solo clic.",
        img: "/agente-contenido.png",
        badge: "Aprobación en 1 Clic • 3 Posts + 1 Reel + 1 Blog",
-       icon: <PenTool className="w-5 h-5 text-indigo-400" />,
+       icon: <PenTool className="w-5 h-5 text-cyan-400" />,
        position: "object-top"
    },
    {
@@ -322,7 +322,7 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
        description: "Un chatbot omnicanal en WhatsApp, Web y DMs. Resuelve consultas complejas, agenda citas en tu calendario y activa solicitudes automáticas a Google Reviews.",
        img: "/agente-soporte.png",
        badge: "Respuesta en <5s • Agendamiento Directo",
-       icon: <MessagesSquare className="w-5 h-5 text-purple-400" />,
+       icon: <MessagesSquare className="w-5 h-5 text-indigo-400" />,
        position: "object-[center_22%]"
    },
    {
@@ -331,29 +331,8 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
        description: "Captura automáticamente los contactos de tu chatbot y los convierte en compradores recurrentes mediante flujos automatizados de email hiper-personalizados.",
        img: "/agente-email.png",
        badge: "Segmentación CRM • Recompra Autónoma",
-       icon: <Mail className="w-5 h-5 text-emerald-400" />,
+       icon: <Mail className="w-5 h-5 text-cyan-400" />,
        position: "object-center"
-   }
- ];
-
- const testimonials = [
-   { 
-     name: "Cristián", 
-     corp: "Veterinaria Moga", 
-     img: mogaImg, 
-     text: "Antes perdíamos citas por no contestar el teléfono a tiempo. Ahora la agenda se llena sola y yo me dedico 100% a los animales." 
-   },
-   { 
-     name: "Patricio", 
-     corp: "Kinesiología Revit", 
-     img: revitImg, 
-     text: "Teníamos fugas de leads en DMs de Instagram y WhatsApp. SCALAR centralizó la atención en segundos y disparó nuestras reseñas positivas en Google." 
-   },
-   { 
-     name: "Oscar", 
-     corp: "Corredora Roca", 
-     img: rocaImg, 
-     text: "En el rubro inmobiliario la velocidad es todo. Mis agentes responden en segundos, 24/7, y me dejan la reunión agendada. Duplicamos captaciones." 
    }
  ];
 
@@ -362,36 +341,37 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
      {/* --- HERO SECTION --- */}
      <section className="relative pt-32 pb-24 lg:pt-44 lg:pb-36 overflow-hidden min-h-[90vh] flex items-center">
          <div className="absolute inset-0 z-0">
-           <img src="/agente-bg.png" alt="Agente IA" className="w-full h-full object-cover opacity-65" style={{ objectPosition: 'center top' }} />
-           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
+           <img src="/agente-bg.png" alt="Agente IA" className="w-full h-full object-cover opacity-50" style={{ objectPosition: 'center top' }} />
+           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
          </div>
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-           <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-200 text-xs font-semibold mb-8 animate-fade-in-up backdrop-blur-md tracking-wide">
-             <span className="flex h-2 w-2 rounded-full bg-cyan-400 mr-2.5 animate-pulse shadow-[0_0_10px_#22d3ee]"></span>
+           <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-slate-300 text-xs font-semibold mb-8 animate-fade-in-up backdrop-blur-md tracking-wide">
+             <span className="flex h-2 w-2 rounded-full bg-cyan-400 mr-2.5 animate-pulse shadow-[0_0_8px_#22d3ee]"></span>
              SaaS de Autogestión • Control Total de Tu Marca
            </div>
            
            <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight text-white drop-shadow-2xl">
              Delega tu Marketing a la IA.<br />
-             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-indigo-200 to-purple-300">Tú Solo Apruebas con Un Clic.</span>
+             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-indigo-300 to-cyan-300">Tú Solo Apruebas con Un Clic.</span>
            </h1>
            
-           <p className="max-w-3xl mx-auto text-base md:text-xl text-slate-200 mb-10 leading-relaxed drop-shadow-lg font-normal opacity-90">
+           <p className="max-w-3xl mx-auto text-base md:text-xl text-slate-300 mb-10 leading-relaxed font-normal opacity-90">
              Conecta tus redes sociales vía <strong>Meta Login</strong>, configura el ADN de tu negocio en 5 minutos y deja que nuestros agentes autónomos redacten tu contenido, atiendan tus canales 24/7 y reactiven a tus clientes. <strong>Tú mantienes la supervisión final de cada publicación.</strong>
            </p>
            
+           {/* --- BOTÓN CTA PRINCIPAL DESTACADO EN GRADIENTE CIAN/ÍNDIGO DE ALTO CONSTRASTE --- */}
            <div className="flex flex-col sm:flex-row justify-center gap-4 items-center">
-             <button onClick={() => scrollToSection('precios')} className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-500 text-white px-9 py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center shadow-[0_0_30px_rgba(79,70,229,0.4)] border border-indigo-400/20 cursor-pointer tracking-tight border-none transform hover:scale-[1.02]">
+             <button onClick={() => scrollToSection('precios')} className="w-full sm:w-auto bg-gradient-to-r from-cyan-400 to-indigo-500 hover:from-cyan-300 hover:to-indigo-400 text-slate-950 px-9 py-4 rounded-xl font-extrabold text-lg transition-all flex items-center justify-center shadow-[0_0_35px_rgba(34,211,238,0.35)] cursor-pointer tracking-tight border-none transform hover:scale-[1.02]">
                Comenzar Ahora <ArrowRight className="ml-2 w-5 h-5" />
              </button>
-             <button onClick={() => scrollToSection('como-funciona')} className="w-full sm:w-auto px-8 py-4 rounded-xl font-semibold text-slate-200 hover:text-white border border-slate-700 hover:border-slate-500 transition-all bg-slate-900/60 backdrop-blur-md cursor-pointer text-base">
+             <button onClick={() => scrollToSection('como-funciona')} className="w-full sm:w-auto px-8 py-4 rounded-xl font-semibold text-slate-300 hover:text-white border border-slate-800 hover:border-slate-600 transition-all bg-slate-900/80 backdrop-blur-md cursor-pointer text-base">
                Ver Cómo Funciona
              </button>
            </div>
 
            <p className="text-xs text-slate-400 mt-4 font-medium">Configuración autónoma en 5 minutos • Sin contratos obligatorios</p>
 
-           <div className="mt-14 pt-8 border-t border-white/10 flex flex-wrap justify-center gap-6 md:gap-12 text-slate-300 backdrop-blur-md inline-flex px-8 py-4 items-center rounded-2xl bg-slate-900/50 border border-white/5 mx-auto text-xs md:text-sm">
+           <div className="mt-14 pt-8 border-t border-slate-800/80 flex flex-wrap justify-center gap-6 md:gap-12 text-slate-300 backdrop-blur-md inline-flex px-8 py-4 items-center rounded-2xl bg-slate-900/40 border border-slate-800/60 mx-auto text-xs md:text-sm">
              <div className="flex items-center gap-2">
                <CheckCircle2 className="w-4 h-4 text-cyan-400" />
                <span>Panel de Aprobación Previa</span>
@@ -418,7 +398,7 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
 
            <div className="grid md:grid-cols-2 gap-8 items-stretch">
              {/* Lado Tradicional */}
-             <div className="bg-slate-900/40 rounded-3xl p-8 border border-red-500/20 shadow-xl flex flex-col justify-between">
+             <div className="bg-slate-900/30 rounded-3xl p-8 border border-red-500/20 shadow-xl flex flex-col justify-between">
                <div>
                  <div className="flex items-center justify-between mb-6 border-b border-slate-800 pb-4">
                    <h3 className="text-xl font-bold text-red-400">El Método Tradicional ❌</h3>
@@ -446,12 +426,12 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
              </div>
 
              {/* Lado SCALAR */}
-             <div className="bg-gradient-to-br from-indigo-950/40 via-slate-900 to-slate-900 rounded-3xl p-8 border border-indigo-500/50 shadow-2xl flex flex-col justify-between relative overflow-hidden">
-               <div className="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">Recomendado</div>
+             <div className="bg-slate-900 rounded-3xl p-8 border border-cyan-500/40 shadow-2xl flex flex-col justify-between relative overflow-hidden">
+               <div className="absolute top-0 right-0 bg-cyan-400 text-slate-950 text-[10px] font-black px-3 py-1 rounded-bl-xl uppercase tracking-wider">Recomendado</div>
                <div>
-                 <div className="flex items-center justify-between mb-6 border-b border-indigo-500/30 pb-4">
-                   <h3 className="text-xl font-bold text-indigo-300">La Era SCALAR ⚡</h3>
-                   <span className="text-xs font-semibold bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full border border-indigo-400/30">100% Autónomo</span>
+                 <div className="flex items-center justify-between mb-6 border-b border-slate-800 pb-4">
+                   <h3 className="text-xl font-bold text-cyan-300">La Era SCALAR ⚡</h3>
+                   <span className="text-xs font-semibold bg-cyan-400/10 text-cyan-300 px-3 py-1 rounded-full border border-cyan-400/20">100% Autónomo</span>
                  </div>
                  <ul className="space-y-4 text-slate-200 text-sm">
                    <li className="flex items-start gap-3">
@@ -478,7 +458,7 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
        </section>
 
        {/* --- SECCIÓN: CÓMO FUNCIONA EN 3 PASOS --- */}
-       <section id="como-funciona" className="py-24 bg-slate-900/50 relative">
+       <section id="como-funciona" className="py-24 bg-slate-900/40 relative">
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="text-center mb-16">
              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">Cómo Funciona SCALAR</h2>
@@ -487,19 +467,19 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
 
            <div className="grid md:grid-cols-3 gap-8">
              <div className="bg-slate-950 p-8 rounded-3xl border border-slate-800 relative">
-               <div className="w-12 h-12 rounded-2xl bg-indigo-600/20 text-indigo-400 font-extrabold text-xl flex items-center justify-center mb-6 border border-indigo-500/30">1</div>
+               <div className="w-12 h-12 rounded-2xl bg-cyan-400/10 text-cyan-400 font-extrabold text-xl flex items-center justify-center mb-6 border border-cyan-400/20">1</div>
                <h3 className="text-xl font-bold text-white mb-3">Conecta tus Canales</h3>
                <p className="text-slate-400 text-sm leading-relaxed">Inicia sesión de forma segura a través de Meta Login. Otorga los permisos sin compartir tus contraseñas privadas.</p>
              </div>
 
              <div className="bg-slate-950 p-8 rounded-3xl border border-slate-800 relative">
-               <div className="w-12 h-12 rounded-2xl bg-indigo-600/20 text-indigo-400 font-extrabold text-xl flex items-center justify-center mb-6 border border-indigo-500/30">2</div>
+               <div className="w-12 h-12 rounded-2xl bg-cyan-400/10 text-cyan-400 font-extrabold text-xl flex items-center justify-center mb-6 border border-cyan-400/20">2</div>
                <h3 className="text-xl font-bold text-white mb-3">Onboarding de 5 Minutos</h3>
                <p className="text-slate-400 text-sm leading-relaxed">Completa el formulario inteligente con la información de tus servicios, propuesta de valor y tono de marca.</p>
              </div>
 
              <div className="bg-slate-950 p-8 rounded-3xl border border-slate-800 relative">
-               <div className="w-12 h-12 rounded-2xl bg-indigo-600/20 text-indigo-400 font-extrabold text-xl flex items-center justify-center mb-6 border border-indigo-500/30">3</div>
+               <div className="w-12 h-12 rounded-2xl bg-cyan-400/10 text-cyan-400 font-extrabold text-xl flex items-center justify-center mb-6 border border-cyan-400/20">3</div>
                <h3 className="text-xl font-bold text-white mb-3">Aprueba y Automatiza</h3>
                <p className="text-slate-400 text-sm leading-relaxed">Revisa las pautas generadas en tu panel, aprueba en 1 clic y deja que tus agentes gestionen publicaciones, chats y correos.</p>
              </div>
@@ -517,7 +497,7 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
 
            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
              {homeAgentsData.map((agent) => (
-               <div key={agent.id} className="bg-slate-900 rounded-3xl p-6 border border-slate-800 hover:border-indigo-500/50 transition-all duration-300 group flex flex-col min-h-[460px]">
+               <div key={agent.id} className="bg-slate-900 rounded-3xl p-6 border border-slate-800 hover:border-slate-700 transition-all duration-300 group flex flex-col min-h-[460px]">
                  <div className="relative w-full h-48 rounded-2xl overflow-hidden mb-6 bg-slate-950">
                    <img src={agent.img} alt={agent.title} className={`w-full h-full object-cover ${agent.position} transition-transform duration-500 group-hover:scale-105`} onError={(e) => { e.target.style.display = 'none'; }} />
                    <div className="absolute bottom-3 right-3 bg-slate-900/90 p-2.5 rounded-xl border border-slate-800 shadow-lg flex items-center justify-center">
@@ -530,9 +510,9 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
                    <p className="text-slate-400 text-sm leading-relaxed mb-6">{agent.description}</p>
                  </div>
 
-                 <div className="mt-auto pt-4 flex items-center justify-between border-t border-slate-800/60">
+                 <div className="mt-auto pt-4 flex items-center justify-between border-t border-slate-800">
                    <span className="text-xs font-medium text-slate-300">{agent.badge}</span>
-                   <button onClick={() => navigateToAgentDetail(agent.id)} className="text-white bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-md cursor-pointer border-none">
+                   <button onClick={() => navigateToAgentDetail(agent.id)} className="text-white bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-md cursor-pointer border-none">
                      Ver detalles
                    </button>
                  </div>
@@ -543,7 +523,7 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
        </section>
 
        {/* --- SECCIÓN PRECIOS (SELF-CHECKOUT) --- */}
-       <section id="precios" className="py-24 bg-slate-900/50 text-white text-center border-t border-slate-800">
+       <section id="precios" className="py-24 bg-slate-900/40 text-white text-center border-t border-slate-800">
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
            <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Planes Transparentes</h2>
            <p className="text-slate-400 mb-16 max-w-2xl mx-auto text-lg leading-relaxed font-medium">Comienza hoy mismo sin contratos de permanencia. Cancela cuando quieras.</p>
@@ -553,40 +533,40 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
              <div className="p-8 rounded-3xl border border-slate-800 bg-slate-950 hover:bg-slate-900/80 transition-all flex flex-col min-h-[520px] shadow-2xl">
                <h3 className="text-xl font-medium text-slate-300 mb-2">Emprendedor</h3>
                <div className="text-4xl font-black text-white uppercase tracking-tighter mb-1">Starter</div>
-               <div className="text-3xl font-bold text-indigo-400">$150 <span className="text-xs text-slate-500 font-black uppercase tracking-widest">USD/mes</span></div>
+               <div className="text-3xl font-bold text-cyan-400">$150 <span className="text-xs text-slate-500 font-black uppercase tracking-widest">USD/mes</span></div>
                <p className="text-slate-400 text-sm my-6 leading-relaxed">Presencia continua con aprobación de contenidos y atención omnicanal 24/7.</p>
                <div className="flex-grow">
                  <ul className="space-y-4 text-sm border-t border-slate-800 pt-6">
-                   <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-indigo-500 shrink-0" /> <span><strong>Agente de Contenido:</strong> Pauta semanal con aprobación en 1 clic</span></li>
-                   <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-indigo-500 shrink-0" /> <span><strong>Atención Omnicanal 24/7:</strong> WhatsApp, Web e Instagram</span></li>
-                   <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-indigo-500 shrink-0" /> <span>Sincronización de Agenda y Calendarios</span></li>
-                   <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-indigo-500 shrink-0" /> <span>Disparador Orgánico de Google Reviews</span></li>
+                   <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" /> <span><strong>Agente de Contenido:</strong> Pauta semanal con aprobación en 1 clic</span></li>
+                   <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" /> <span><strong>Atención Omnicanal 24/7:</strong> WhatsApp, Web e Instagram</span></li>
+                   <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" /> <span>Sincronización de Agenda y Calendarios</span></li>
+                   <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" /> <span>Disparador Orgánico de Google Reviews</span></li>
                  </ul>
                </div>
                <div className="mt-8 pt-6">
-                 <button onClick={() => alert('Redirigiendo a la página de registro/pago...')} className="w-full py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-all cursor-pointer border-none text-center block">
+                 <button onClick={() => alert('Redirigiendo a la página de registro/pago...')} className="w-full py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold transition-all cursor-pointer border-none text-center block">
                    Comenzar con Starter
                  </button>
                </div>
              </div>
 
-             {/* PLAN GROWTH */}
-             <div className="p-8 rounded-3xl border-2 border-indigo-500 bg-slate-950 relative transform md:-translate-y-4 shadow-[0_0_50px_rgba(79,70,229,0.2)] flex flex-col min-h-[520px]">
-               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-indigo-500 text-white px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">El más elegido</div>
-               <h3 className="text-xl font-medium text-indigo-400 mb-2">Crecimiento</h3>
+             {/* PLAN GROWTH (DESTACADO CON EL GRADIENTE PRINCIPAL DE CONVERSIÓN) */}
+             <div className="p-8 rounded-3xl border-2 border-cyan-400 bg-slate-950 relative transform md:-translate-y-4 shadow-[0_0_40px_rgba(34,211,238,0.2)] flex flex-col min-h-[520px]">
+               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-cyan-400 text-slate-950 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">El más elegido</div>
+               <h3 className="text-xl font-medium text-cyan-300 mb-2">Crecimiento</h3>
                <div className="text-4xl font-black text-white uppercase tracking-tighter mb-1">Growth</div>
-               <div className="text-3xl font-bold text-indigo-400">$200 <span className="text-xs text-slate-500 font-black uppercase tracking-widest">USD/mes</span></div>
+               <div className="text-3xl font-bold text-cyan-400">$200 <span className="text-xs text-slate-500 font-black uppercase tracking-widest">USD/mes</span></div>
                <p className="text-slate-400 text-sm my-6 leading-relaxed font-medium">La suite completa. Omnicanalidad avanzada y monetización por email.</p>
-               <div className="flex-grow text-indigo-100">
-                 <ul className="space-y-4 text-sm border-t border-indigo-500/30 pt-6">
-                   <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-indigo-400 shrink-0" /> <span><strong>Todo lo incluido en Plan Starter</strong></span></li>
-                   <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-indigo-400 shrink-0" /> <span><strong>Agente de Email Marketing Inteligente</strong></span></li>
-                   <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-indigo-400 shrink-0" /> <span>Segmentación Automatizada CRM</span></li>
-                   <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-indigo-400 shrink-0" /> <span>Soporte Técnico Avanzado con Base RAG</span></li>
+               <div className="flex-grow text-slate-200">
+                 <ul className="space-y-4 text-sm border-t border-slate-800 pt-6">
+                   <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" /> <span><strong>Todo lo incluido en Plan Starter</strong></span></li>
+                   <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" /> <span><strong>Agente de Email Marketing Inteligente</strong></span></li>
+                   <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" /> <span>Segmentación Automatizada CRM</span></li>
+                   <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" /> <span>Soporte Técnico Avanzado con Base RAG</span></li>
                  </ul>
                </div>
                <div className="mt-8 pt-6">
-                 <button onClick={() => alert('Redirigiendo a la página de registro/pago...')} className="w-full py-4 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold transition-all shadow-lg cursor-pointer border-none text-center block">
+                 <button onClick={() => alert('Redirigiendo a la página de registro/pago...')} className="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-400 to-indigo-500 hover:from-cyan-300 hover:to-indigo-400 text-slate-950 font-extrabold transition-all shadow-md shadow-cyan-400/20 cursor-pointer border-none text-center block">
                    Comenzar con Growth
                  </button>
                </div>
@@ -607,7 +587,7 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
                  </ul>
                </div>
                <div className="mt-8 pt-6">
-                 <button onClick={() => scrollToSection('precios')} className="w-full py-4 rounded-xl border border-slate-700 hover:border-indigo-500 text-white font-bold transition-all cursor-pointer bg-transparent text-center block">
+                 <button onClick={() => scrollToSection('precios')} className="w-full py-4 rounded-xl border border-slate-800 hover:border-slate-600 text-white font-bold transition-all cursor-pointer bg-transparent text-center block">
                    Contactar Ventas
                  </button>
                </div>
@@ -628,10 +608,10 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
                { q: "¿Qué pasa si un cliente hace una consulta muy específica?", a: "El agente de soporte cuenta con un protocolo de escalabilidad humana. Si detecta una duda que requiere criterio comercial específico, notificará a tu equipo en tiempo real." },
                { q: "¿Puedo cancelar mi suscripción en cualquier momento?", a: "Sí, puedes cancelar tu suscripción directamente desde tu cuenta sin penalizaciones ni compromisos a largo plazo." }
              ].map((item, index) => (
-               <div key={index} className="border border-slate-800 rounded-xl overflow-hidden bg-slate-900 shadow-lg">
+               <div key={index} className="border border-slate-800/80 rounded-xl overflow-hidden bg-slate-900 shadow-lg">
                  <button onClick={() => toggleFaq(index)} className="w-full flex justify-between items-center p-6 hover:bg-slate-800/50 cursor-pointer text-left bg-transparent border-none">
                    <span className="font-normal text-base tracking-tight text-slate-200">{item.q}</span>
-                   {activeFaq === index ? <ChevronUp className="w-5 h-5 text-indigo-400" /> : <ChevronDown className="w-5 h-5 text-slate-500" />}
+                   {activeFaq === index ? <ChevronUp className="w-5 h-5 text-cyan-400" /> : <ChevronDown className="w-5 h-5 text-slate-500" />}
                  </button>
                  {activeFaq === index && <div className="p-6 pt-4 text-slate-400 text-sm border-t border-slate-800/50 leading-relaxed">{item.a}</div>}
                </div>
@@ -645,7 +625,7 @@ const HomeContent = ({ scrollToSection, navigateAndScroll }) => {
          <div className="max-w-4xl mx-auto px-4">
            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight">Activa Tu Fuerza Digital Hoy</h2>
            <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto font-normal">Configura tus agentes en 5 minutos y automatiza la creación de contenido y atención de tu negocio.</p>
-           <button onClick={() => scrollToSection('precios')} className="bg-indigo-600 hover:bg-indigo-500 text-white px-9 py-4 rounded-xl font-bold text-lg transition-all shadow-[0_0_30px_rgba(79,70,229,0.4)] border-none cursor-pointer">
+           <button onClick={() => scrollToSection('precios')} className="bg-gradient-to-r from-cyan-400 to-indigo-500 hover:from-cyan-300 hover:to-indigo-400 text-slate-950 px-9 py-4 rounded-xl font-extrabold text-lg transition-all shadow-[0_0_35px_rgba(34,211,238,0.35)] border-none cursor-pointer">
              Comenzar Ahora
            </button>
          </div>
@@ -770,7 +750,7 @@ const App = () => {
            {/* Botones de Acción Derecha */}
            <div className="hidden md:flex space-x-4 items-center">
              <button onClick={() => alert('Redirigiendo a inicio de sesión...')} className="text-slate-300 hover:text-white text-sm font-semibold bg-transparent border-none cursor-pointer">Iniciar Sesión</button>
-             <button onClick={() => navigateAndScroll('home', 'precios')} className="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2.5 rounded-full font-bold text-sm transition-all cursor-pointer shadow-lg shadow-indigo-600/20 border-none">Comenzar</button>
+             <button onClick={() => navigateAndScroll('home', 'precios')} className="bg-gradient-to-r from-cyan-400 to-indigo-500 hover:from-cyan-300 hover:to-indigo-400 text-slate-950 px-5 py-2.5 rounded-full font-bold text-sm transition-all cursor-pointer shadow-md shadow-cyan-400/20 border-none">Comenzar</button>
            </div>
 
            {/* Menú Móvil Hamburguesa */}
@@ -789,7 +769,7 @@ const App = () => {
              <button onClick={() => navigateAndScroll('home', 'precios')} className="block w-full text-left py-3 text-slate-300 border-b border-slate-800 font-medium bg-transparent border-none">Precios</button>
              <button onClick={() => alert('Redirigiendo a inicio de sesión...')} className="block w-full text-left py-3 text-slate-300 border-b border-slate-800 font-medium bg-transparent border-none">Iniciar Sesión</button>
              
-             <button onClick={() => navigateAndScroll('home', 'precios')} className="block w-full text-center mt-4 bg-indigo-600 py-3 rounded-xl font-bold text-white shadow-lg border-none">Comenzar</button>
+             <button onClick={() => navigateAndScroll('home', 'precios')} className="block w-full text-center mt-4 bg-gradient-to-r from-cyan-400 to-indigo-500 text-slate-950 py-3 rounded-xl font-bold shadow-lg border-none">Comenzar</button>
            </div>
          </div>
        )}
